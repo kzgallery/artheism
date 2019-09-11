@@ -4,256 +4,321 @@
     <meta charset="utf-8">
     <title>artheism</title>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="portals.js"></script>
+    <script src=".https://vr-ugar.github.io/portals/portals.js"></script>
+	<script src="https://vr-ugar.github.io/portals/aim.js"></script>
+	<script src="https://vr-ugar.github.io/portals/a-portal.js"></script>
   </head>
   
   <body>
-    <a-scene background="color: grey" loading-screen="dotsColor: orange; backgroundColor: black">
+    <a-scene background="color: orange" loading-screen="dotsColor: orange; backgroundColor: black">
       <a-assets>
-	      <img id="4" src="assets/4.jpg">
-	      <img id="1" src="assets/1.jpg">
-	      <img id="5" src="assets/5.jpg">
-	      <img id="2" src="assets/2.jpg">
-	      <img id="3" src="assets/3.jpg">
-	      <img id="6" src="assets/6.jpg">
-          <img id="top" src="assets/top.jpg">
+		  <img id="4" src="assets/new/4.jpg">
+	      <img id="1" src="assets/new/1.jpg">
+	      <img id="5" src="assets/new/5.jpg">
+	      <img id="2" src="assets/new/2.jpg">
+	      <img id="3" src="assets/new/3.jpg">
+	      <img id="6" src="assets/new/6.jpg">
+          <img id="top" src="assets/new/top.jpg">
           <audio id="sound" src="assets/sound.mp3" preload="auto" loop="true"></audio>
       </a-assets>
 
-      <a-camera><a-cursor visible="false" color="red"></a-cursor>
+      <a-camera position="0 0 0" wasd-controls="enabled: false">
+		<a-cursor visible="true" color="red"></a-cursor>
+	  	<!-- <a-entity position="0 0 -10" aim> -->
 
       <a-sound src="#sound" autoplay="true" loop="true" positional="false" position="0 2 -1"></a-sound>
       </a-camera>
 
-      <a-entity id="loc_top" visible="false">
-      <a-sky material="src: #top"></a-sky>
-        <a-sphere 
-            toid="loc_4" 
-            scale="5 5 5" 
-            position="11 -30 -80" 
-            material="src: #4" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+		<a-entity id="loc_top" visible="true">
+			<a-sky material="src: #top"></a-sky>
 
-        <a-sphere 
-            toid="loc_3" 
-            scale="4 4 4" 
-            position="64 -28 -17" 
-            material="src: #3" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#4"
+				to="loc_4"
+				position="6.94 -3.62 6.23"
+			>
+			</a-portal>
+			
+			<a-portal
+				src="#3"
+				to="loc_3"
+				position="8.2 -5.23 -2.35"
+			>
+			</a-portal>
 
-        <a-sphere 
-            toid="loc_6" 
-            scale="4 4 4" 
-            position="64 -28 53" 
-            material="src: #6" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#6"
+				to="loc_6"
+				position="1.23 -4.92 -8.62"
+			>
+			</a-portal>
 
-        <a-sphere 
-            toid="loc_2" 
-            scale="4 4 4" 
-            position="35 -26 100" 
-            material="src: #2" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#2"
+				to="loc_2"
+				position="-3.88 -3.07 8.69"
+			>
+			</a-portal>
 
-        <a-sphere 
-            toid="loc_5" 
-            scale="4 4 4" 
-            position="-45 -26 100" 
-            material="src: #5" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
-    </a-entity>
+			<a-portal
+				src="#5"
+				to="loc_5"
+				position="3.91 -2.59 8.83"
+			>
+			</a-portal>
+		</a-entity>
 
-    <a-entity id="loc_1" rotation="0 -90 0">
-    <a-sky material="src: #1"></a-sky>
-        
-        <a-sphere 
-            toid="loc_4" 
-            scale="5 5 5" 
-            position="3.5 0 -80" 
-            material="src: #4" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+		<a-entity id="loc_6" visible=false>
+			<a-sky material="src: #6"></a-sky>
+			
+			<a-portal
+				src="#1"
+				to="loc_1"
+				position="2.11 -0.32 9.77"
+			>
+		    </a-portal>
 
-        <a-sphere 
-            toid="loc_5" 
-            scale="4 4 4" 
-            position="64 0 32" 
-            material="src: #5" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#2"
+				to="loc_2"
+				position="7.38 -0.7 6.71"
+			>
+		    </a-portal>
 
-    </a-entity>
+			<a-portal
+				src="#top"
+				to="loc_top"
+				position="7.55 2.84 5.91"
+			>
+		    </a-portal>
 
+			<a-portal
+				src="#5"
+				to="loc_5"
+				position="9.77 -0.16 2.13"
+			>
+		    </a-portal>
 
-    <a-entity id="loc_4" rotation="0 0 0" visible="false">
-    <a-sky material="src: #4"></a-sky>
-        
-        <a-sphere 
-            toid="loc_3" 
-            scale="7 7 7" 
-            position="128 0 -62" 
-            material="src: #3" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#4"
+				to="loc_4"
+				position="9.98 -0.58 -0.3"
+			>
+		    </a-portal>
 
-        <a-sphere 
-            toid="loc_1" 
-            scale="7 7 7" 
-            position="20 0 175" 
-            material="src: #1" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#3"
+				to="loc_3"
+				position="9.31 -1.51 -3.31"
+			>
+		    </a-portal>
+		</a-entity>
 
-        <a-sphere 
-            toid="loc_top" 
-            scale="8 8 8" 
-            position="140 70 134" 
-            material="src: #top" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
-    </a-entity>
+		<a-entity id="loc_3" visible=false>
+			<a-sky material="src: #3"></a-sky>
 
+			<a-portal
+				src="#6"
+				to="loc_6"
+				position="-0.54 -1.38 9.89"
+			>
+		    </a-portal>
 
-    <a-entity id="loc_3" rotation="0 0 0" visible="false">
-    <a-sky material="src: #3"></a-sky>
-        
-        <a-sphere 
-            toid="loc_6" 
-            scale="7 7 7" 
-            position="30 0 -100" 
-            material="src: #6" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#top"
+				to="loc_top"
+				position="8.79 3.91 2.73"
+			>
+		    </a-portal>
 
-        <a-sphere 
-            toid="loc_4" 
-            scale="7 7 7" 
-            position="-10 0 100" 
-            material="src: #4" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#2"
+				to="loc_2"
+				position="9.59 -0.6 -2.79"
+			>
+		    </a-portal>
 
-        <a-sphere 
-            toid="loc_top" 
-            scale="10 10 10" 
-            position="212 95 129" 
-            material="src: #top" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
-    </a-entity>
+			<a-portal
+				src="#5"
+				to="loc_5"
+				position="7.24 -0.4 -6.89"
+			>
+		    </a-portal>
 
+			<a-portal
+				src="#4"
+				to="loc_4"
+				position="3.47 -1.36 -9.28"
+			>
+		    </a-portal>
+		</a-entity>
 
-    <a-entity id="loc_6" rotation="0 0 0" visible="false">
-    <a-sky material="src: #6"></a-sky>
-        
-        <a-sphere 
-            toid="loc_2" 
-            scale="7 7 7" 
-            position="67 0 -50" 
-            material="src: #2" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+		<a-entity id="loc_4" visible=false>
+			<a-sky material="src: #4"></a-sky>
 
-        <a-sphere 
-            toid="loc_3" 
-            scale="7 7 7" 
-            position="-50 0 100" 
-            material="src: #3" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#5"
+				to="loc_5"
+				position="6.19 -2.76 -7.35"
+			>
+		    </a-portal>
 
-        <a-sphere 
-            toid="loc_top" 
-            scale="10 10 10" 
-            position="212 95 251" 
-            material="src: #top" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
-    </a-entity>
+			<a-portal
+				src="#2"
+				to="loc_2"
+				position="9.22 -0.36 -3.84"
+			>
+		    </a-portal>
 
+			<a-portal
+				src="#top"
+				to="loc_top"
+				position="4.15 3.43 8.43"
+			>
+		    </a-portal>
 
-    <a-entity id="loc_2" rotation="0 0 0" visible="false">
-    <a-sky material="src: #2"></a-sky>
-        
-        <a-sphere 
-            toid="loc_5" 
-            scale="4 4 4" 
-            position="-40 0 40" 
-            material="src: #5" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#6"
+				to="loc_6"
+				position="1.55 -0.58 9.86"
+			>
+		    </a-portal>
 
-        <a-sphere 
-            toid="loc_6" 
-            scale="7 7 7" 
-            position="10 0 -80"
-            material="src: #6" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#3"
+				to="loc_3"
+				position="-3.25 -1.44 9.35"
+			>
+		    </a-portal>
+		
+		</a-entity>
 
-        <a-sphere 
-            toid="loc_top" 
-            scale="10 10 10" 
-            position="-238 62 -133" 
-            material="src: #top" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
-    </a-entity>
+		<a-entity id="loc_5" visible=false>
+			<a-sky material="src: #5"></a-sky>
 
-    <a-entity id="loc_5" rotation="0 0 0" visible="false">
-    <a-sky material="src: #5"></a-sky>
-        
-        <a-sphere 
-            toid="loc_1" 
-            scale="7 7 7" 
-            position="67 0 -85" 
-            material="src: #1" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#2"
+				to="loc_2"
+				position="-6.93 -1.38 7.08"
+			>
+		    </a-portal>
 
-        <a-sphere 
-            toid="loc_2" 
-            scale="7 7 7" 
-            position="77 0 132"
-            material="src: #2" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
+			<a-portal
+				src="#top"
+				to="loc_top"
+				position="-8.19 2.8 -5.01"
+			>
+		    </a-portal>
 
-        <a-sphere 
-            toid="loc_top" 
-            scale="10 10 10" 
-            position="212 48 -52" 
-            material="src: #top" 
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" 
-            portal> 
-        </a-sphere>
-    </a-entity>
+			<a-portal
+				src="#6"
+				to="loc_6"
+				position="-6.71 -0.88 -7.36"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#3"
+				to="loc_3"
+				position="-3.61 -0.86 -9.28"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#3"
+				to="loc_3"
+				position="-3.61 -0.86 -9.28"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#4"
+				to="loc_4"
+				position="1.78 -1.57 -9.71"
+			>
+		    </a-portal>
+		</a-entity>
+
+		<a-entity id="loc_2" visible=false>
+			<a-sky material="src: #2"></a-sky>
+
+			<a-portal
+				src="#5"
+				to="loc_5"
+				position="4.51 -2.2 8.65"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#4"
+				to="loc_4"
+				position="6.81 0.12 7.32"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#3"
+				to="loc_3"
+				position="9.79 -0.56 1.98"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#3"
+				to="loc_3"
+				position="9.79 -0.56 1.98"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#top"
+				to="loc_top"
+				position="9.56 2.12 -2.04"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#6"
+				to="loc_6"
+				position="9.68 -0.48 -2.47"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#1"
+				to="loc_1"
+				position="6.25 -0.76 -7.77"
+			>
+		    </a-portal>
+
+		</a-entity>
+
+		<a-entity id="loc_1" visible=false>
+			<a-sky material="src: #1"></a-sky>
+
+			<a-portal
+				src="#6"
+				to="loc_6"
+				position="0.45 -0.94 -9.95"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#2"
+				to="loc_2"
+				position="8.88 -0.5 4.58"
+			>
+		    </a-portal>
+
+			<a-portal
+				src="#5"
+				to="loc_5"
+				position="9.96 0.66 -0.53"
+			>
+		    </a-portal>
+
+		</a-entity>
+
     </a-scene>
   </body>
 </html>
